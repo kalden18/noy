@@ -16,16 +16,9 @@ vy = df['hg']
 vregr = linear_model.LinearRegression()
 vregr.fit(vX, vy)
 
-predictedC = regr.predict([[4,1,13,3,9,6,4.5,4.5]])
+predictedC = regr.predict([[4,1,13,3,9,6,4,4]])
 cint = int(predictedC)
 predictedCO2 = round(cint)
-predictedCv = vregr.predict([[4,1,13,3,9,6,4.5,4]])
+predictedCv = vregr.predict([[4,1,13,3,9,6,4,4]])
 cvint = int(predictedCv)
 predictedCO2v = round(cvint)
-train_x = predictedCO2[:80]
-train_y = predictedCO2v[:80]
-
-test_x = predictedCO2[80:]
-test_y = predictedCO2v[80:]
-mymodel = numpy.poly1d(numpy.polyfit(train_x, train_y, 4))
-print(mymodel)
